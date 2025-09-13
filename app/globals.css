@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.5% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Enhanced font smoothing for better readability */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Added high-contrast button class for accessibility */
+.btn-solid-orange {
+  background: rgb(249, 115, 22) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-solid-orange:hover {
+  background: rgb(234, 88, 12) !important;
+  color: white !important;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.25);
+}
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  /* Added cultural hover enhancement */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-effect:hover {
+  @apply bg-white/15 border-orange-500/30 shadow-xl;
+  transform: translateY(-2px);
+}
+
+.glass-card {
+  @apply rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  /* Enhanced transition for smoother animations */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-button {
+  @apply bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 shadow-md transition-all;
+  /* Added cultural color accent on hover */
+}
+
+.glass-button:hover {
+  @apply border-orange-500/40 shadow-lg;
+  transform: translateY(-1px);
+}
+
+.gradient-text {
+  /* Enhanced gradient with more cultural colors */
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-red-500 to-pink-500;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* Added gradient animation for more dynamic text */
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-glow {
+  @apply relative;
+}
+
+.hero-glow::after {
+  content: "";
+  /* Enhanced glow with cultural colors and animation */
+  @apply absolute -z-10 w-full h-full top-0 left-0 blur-3xl opacity-30 bg-gradient-to-r from-orange-500/50 via-red-500/50 to-pink-500/50 rounded-full;
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Added pulsing glow animation */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+/* Enhanced Kolam-specific animations with cultural elements */
+@keyframes kolam-draw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.8;
+  }
+}
+
+.kolam-animate {
+  stroke-dasharray: 100;
+  animation: kolam-draw 3s ease-in-out infinite;
+}
+
+/* Added cultural pattern animations */
+@keyframes mandala-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mandala-spin {
+  animation: mandala-rotate 20s linear infinite;
+}
+
+/* Added floating animation for cultural elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced hover effects for cultural cards */
+.cultural-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cultural-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(251, 146, 60, 0.3);
+}
+
+/* Added traditional Indian color palette utilities */
+.text-saffron {
+  color: #ff9933;
+}
+
+.text-turmeric {
+  color: #e4d00a;
+}
+
+.text-vermillion {
+  color: #ff4500;
+}
+
+.bg-saffron {
+  background-color: #ff9933;
+}
+
+.bg-turmeric {
+  background-color: #e4d00a;
+}
+
+.bg-vermillion {
+  background-color: #ff4500;
+}
+
+/* Added cultural border patterns */
+.border-kolam {
+  border-image: linear-gradient(45deg, #ff9933, #ff4500, #e4d00a) 1;
+}
+
+/* Hide scrollbar for mobile navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
