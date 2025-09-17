@@ -91,59 +91,62 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="relative min-h-screen flex items-center justify-center space-y-8 pb-8 pt-4 sm:pb-12 sm:pt-8 md:pb-16 md:pt-12 overflow-hidden px-4">
-          <KolamHeroAnimation className="absolute inset-0" />
-          <div className="container flex max-w-[68rem] flex-col items-center gap-4 sm:gap-6 text-center relative z-10">
+        <section className="relative min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] flex items-center justify-center py-16 sm:py-24 overflow-hidden px-4">
+          <KolamHeroAnimation className="absolute inset-0 opacity-50 sm:opacity-100" />
+          <div className="container flex max-w-[68rem] flex-col items-center gap-6 sm:gap-8 text-center relative z-10">
             <div className="rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm px-4 sm:px-6 py-2 text-xs sm:text-sm font-medium text-orange-600 border border-orange-500/30 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-orange-500/30 hover:to-red-500/30 hover:border-orange-500/50">
               ✨ Introducing Kolam AI - Where Tradition Meets Innovation 🕉️
             </div>
             <div className="hero-glow transition-all duration-500 hover:scale-105">
-              <h1 className="font-heading text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl gradient-text leading-tight px-2">
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl gradient-text leading-tight">
                 Preserve Indian Heritage
                 <br />
-                <span className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl">Through AI Magic 🎨</span>
+                <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl mt-2 inline-block">Through AI Magic 🎨</span>
               </h1>
             </div>
-            <p className="max-w-[48rem] leading-relaxed text-muted-foreground text-sm sm:text-base md:text-xl md:leading-8 glass-effect p-4 sm:p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white/10 mx-4">
+            <p className="max-w-[48rem] leading-relaxed text-muted-foreground text-base sm:text-lg md:text-xl md:leading-8 glass-effect p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white/10">
               Create stunning Kolam patterns with AI assistance, learn traditional designs through AR tutorials, share
               with a global community, and participate in festival challenges. Experience the perfect blend of ancient
               artistry and cutting-edge technology. 🪔 Celebrate Diwali, Pongal, and Margazhi with authentic patterns.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full max-w-md sm:max-w-none">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 w-full max-w-xs sm:max-w-none">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 sm:px-8 text-sm sm:text-base transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-orange-500/30 w-full sm:w-auto"
+                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-6 sm:py-4 text-base font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30 w-full sm:w-auto"
                 asChild
               >
                 <Link href="#gallery">
-                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  <Play className="mr-2 h-5 w-5" />
                   Watch Demo
                 </Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="glass-button border-orange-500/30 text-orange-600 hover:bg-orange-500/10 bg-transparent transition-all duration-300 hover:scale-110 hover:border-orange-500/60 hover:shadow-lg w-full sm:w-auto text-sm sm:text-base"
+                className="glass-button border-orange-500/30 text-orange-600 hover:bg-orange-500/10 bg-transparent px-6 py-6 sm:py-4 text-base font-medium transition-all duration-300 hover:scale-105 hover:border-orange-500/60 hover:shadow-lg w-full sm:w-auto"
                 asChild
               >
                 <Link href="#download">
-                  <Download className="mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                  <Download className="mr-2 h-5 w-5" />
                   Download App
                 </Link>
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-12 w-full max-w-xs sm:max-w-2xl">
-              <div className="text-center transition-all duration-300 hover:scale-110 hover:drop-shadow-lg">
-                <div className="text-lg sm:text-2xl md:text-3xl font-bold gradient-text">10K+ 🎨</div>
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-12 w-full max-w-xs sm:max-w-2xl mx-auto">
+              <div className="text-center p-4 glass-effect rounded-lg transition-all duration-300 hover:scale-105">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">10K+</div>
+                <div className="text-2xl sm:text-3xl mb-1">🎨</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Kolam Patterns</div>
               </div>
-              <div className="text-center transition-all duration-300 hover:scale-110 hover:drop-shadow-lg">
-                <div className="text-lg sm:text-2xl md:text-3xl font-bold gradient-text">50K+ 👥</div>
+              <div className="text-center p-4 glass-effect rounded-lg transition-all duration-300 hover:scale-105">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">50K+</div>
+                <div className="text-2xl sm:text-3xl mb-1">👥</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Active Artists</div>
               </div>
-              <div className="text-center transition-all duration-300 hover:scale-110 hover:drop-shadow-lg">
-                <div className="text-lg sm:text-2xl md:text-3xl font-bold gradient-text">25+ 🪔</div>
+              <div className="text-center p-4 glass-effect rounded-lg transition-all duration-300 hover:scale-105">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">25+</div>
+                <div className="text-2xl sm:text-3xl mb-1">🪔</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">Festivals Covered</div>
               </div>
             </div>

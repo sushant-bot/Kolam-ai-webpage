@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { GlassCard } from "@/components/ui/glass-card"
 import { Badge } from "@/components/ui/badge"
 import { Smartphone, Star, Download, QrCode, Apple, Play } from "lucide-react"
+import Image from "next/image"
 
 export default function AppDownloadSection() {
   return (
@@ -118,14 +119,23 @@ export default function AppDownloadSection() {
 
       {/* QR Code Section */}
       <div className="text-center space-y-6">
-        <h4 className="text-xl font-semibold gradient-text">Quick Download with QR Code</h4>
+        <h4 className="text-2xl font-semibold text-orange-500">Scan to Download</h4>
         <div className="flex justify-center">
-          <GlassCard className="p-6 inline-block">
-            <div className="w-32 h-32 bg-white rounded-lg flex items-center justify-center">
-              <QrCode className="h-20 w-20 text-gray-800" />
+          <div className="bg-white rounded-xl p-6 shadow-lg">
+            <div className="space-y-4">
+              <div className="text-center font-medium">Google drive</div>
+              <div className="w-32 h-32 flex items-center justify-center">
+                <Image
+                  src="/qr/Frame.jpg"
+                  alt="Play Store QR Code"
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="text-sm text-gray-500">Scan to Download</div>
             </div>
-            <p className="text-sm text-muted-foreground mt-3">Scan to download</p>
-          </GlassCard>
+          </div>
         </div>
       </div>
 
