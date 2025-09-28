@@ -671,13 +671,52 @@
 }
 
 .logo-enhanced {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
 .logo-enhanced:hover {
-  transform: rotate(360deg) scale(1.1);
-  filter: drop-shadow(0 0 20px rgba(251, 146, 60, 0.6));
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) brightness(1.2);
+}
+
+.logo-enhanced:active {
+  transform: scale(0.95);
+  transition: all 0.1s ease;
+}
+
+/* Add a subtle pulse animation for the logo */
+.logo-enhanced::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid rgba(251, 146, 60, 0.3);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.logo-enhanced:hover::after {
+  opacity: 1;
+  transform: scale(1.2);
+  animation: logo-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.1;
+  }
 }
 
 .btn-ripple {
@@ -1063,6 +1102,24 @@
 .card-tilt:focus-visible {
   outline: 2px solid #ff6b35;
   outline-offset: 2px;
+}
+
+/* Optimized image loading */
+.image-optimized {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-optimized.loaded {
+  animation: none;
+  background: none;
 }
 
 .image-loading {

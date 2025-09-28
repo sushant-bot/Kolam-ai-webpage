@@ -18,6 +18,7 @@ import {
 } from "lucide-react"
 import KolamGallery from "@/components/kolam-gallery"
 import AppDownloadSection from "@/components/app-download-section"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 import { Button } from "@/components/ui/button"
 import { GradientBackground } from "@/components/ui/gradient-background"
@@ -185,8 +186,8 @@ export default function Home() {
 
               <div className="grid grid-cols-3 gap-3 lg:gap-6 mt-8 lg:mt-12 max-w-3xl mx-auto">
                 {[
-                  { number: "50K+", icon: "🎨", label: "AI Patterns" },
-                  { number: "100K+", icon: "👥", label: "Artists" },
+                  { number: "50+", icon: "🎨", label: "AI Patterns" },
+                  { number: "10+", icon: "👥", label: "Artists" },
                   { number: "25+", icon: "🪔", label: "Festivals" },
                 ].map((stat, index) => (
                   <div key={index} className="glass-card-premium stats-bounce p-4 lg:p-6 text-center">
@@ -364,11 +365,14 @@ export default function Home() {
             ].map((image, index) => (
               <div key={index} className="glass-card-premium card-tilt overflow-hidden group">
                 <div className="image-hover-advanced aspect-square relative">
-                  <img
+                  <OptimizedImage
                     src={image.src || "/placeholder.svg"}
                     alt={image.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
+                    className="w-full h-full"
+                    width={400}
+                    height={400}
+                    loading={index < 6 ? "eager" : "lazy"}
+                    priority={index < 4}
                   />
                   <div className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {image.category}

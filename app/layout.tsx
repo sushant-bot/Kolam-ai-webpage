@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   description:
     "Create stunning Kolam patterns with AI assistance, learn traditional designs, and experience AR previews",
   generator: "Next.js",
+  icons: {
+    icon: "/favicon.jpg",
+    shortcut: "/favicon.jpg",
+    apple: "/favicon.jpg",
+  },
 }
 
 export default function RootLayout({
@@ -24,6 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="preload" href="/traditional-lotus-pattern.png" as="image" />
+        <link rel="preload" href="/Geometric-Mandala.png" as="image" />
+        <link rel="preload" href="/Peacock-Grace.png" as="image" />
+        <link rel="preload" href="/Rangoli-Flower-Burst.png" as="image" />
+      </head>
       <body className="font-sans">
         <Suspense fallback={null}>{children}</Suspense>
       </body>

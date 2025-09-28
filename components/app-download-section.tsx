@@ -55,11 +55,11 @@ export default function AppDownloadSection() {
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold gradient-text">100K+</div>
+              <div className="text-2xl font-bold gradient-text">1+</div>
               <div className="text-xs text-muted-foreground">Downloads</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold gradient-text">50MB</div>
+              <div className="text-2xl font-bold gradient-text">50Mb</div>
               <div className="text-xs text-muted-foreground">Size</div>
             </div>
           </div>
@@ -119,21 +119,25 @@ export default function AppDownloadSection() {
 
       {/* QR Code Section */}
       <div className="text-center space-y-6">
-        <h4 className="text-2xl font-semibold text-orange-500">Scan to Download</h4>
+        <h4 className="text-2xl font-semibold gradient-text">Scan to Download</h4>
         <div className="flex justify-center">
-          <div className="bg-white rounded-xl p-6 shadow-lg">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-orange-200/50">
             <div className="space-y-4">
-              <div className="text-center font-medium">Google drive</div>
-              <div className="w-32 h-32 flex items-center justify-center">
+              <div className="w-48 h-48 mx-auto bg-white rounded-xl p-4 shadow-inner">
                 <Image
-                  src="/qr/Frame.jpg"
-                  alt="Play Store QR Code"
-                  width={128}
-                  height={128}
+                  src="/qr/frame.png"
+                  alt="QR Code to Download Kolam AI App"
+                  width={192}
+                  height={192}
                   className="w-full h-full object-contain"
+                  priority
                 />
               </div>
-              <div className="text-sm text-gray-500">Scan to Download</div>
+              <div className="text-sm text-gray-600 font-medium">Scan with your phone camera</div>
+              <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                <QrCode className="h-4 w-4" />
+                <span>Works with iOS & Android</span>
+              </div>
             </div>
           </div>
         </div>
