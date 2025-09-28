@@ -17,7 +17,7 @@ const kolamPatterns = [
     artist: "Priya Sharma",
     festival: "Diwali",
     colors: ["orange", "red", "yellow"],
-    image: "/traditional-lotus-kolam-pattern-geometric.jpg",
+    image: "/traditional-lotus-pattern.png",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const kolamPatterns = [
     artist: "Arjun Patel",
     festival: "Pongal",
     colors: ["blue", "purple", "pink"],
-    image: "/geometric-mandala-kolam-pattern-modern.jpg",
+    image: "/Geometric-Mandala.png",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const kolamPatterns = [
     artist: "Lakshmi Devi",
     festival: "Margazhi",
     colors: ["green", "blue", "gold"],
-    image: "/peacock-feather-kolam-pattern-traditional.jpg",
+    image: "/Peacock-Grace.png",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const kolamPatterns = [
     artist: "Kolam AI",
     festival: "General",
     colors: ["pink", "purple", "orange"],
-    image: "/ai-generated-fusion-kolam-pattern-modern.jpg",
+    image: "/AI-Fusion.png",
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const kolamPatterns = [
     artist: "Meera Krishnan",
     festival: "Diwali",
     colors: ["red", "orange", "yellow"],
-    image: "/rangoli-flower-burst-kolam-pattern-festival.jpg",
+    image: "/Rangoli-Flower-Burst.png",
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ const kolamPatterns = [
     artist: "Ravi Kumar",
     festival: "General",
     colors: ["white", "black", "gray"],
-    image: "/minimalist-dots-kolam-pattern-simple.jpg",
+    image: "/Minimalist-Dots.png",
   },
 ]
 

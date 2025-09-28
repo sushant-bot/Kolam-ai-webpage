@@ -1,4 +1,3 @@
-
 import Link from "next/link"
 import {
   Palette,
@@ -12,507 +11,508 @@ import {
   Crown,
   Sparkles,
   Check,
+  Star,
+  Zap,
+  Heart,
+  Globe,
 } from "lucide-react"
 import KolamGallery from "@/components/kolam-gallery"
 import AppDownloadSection from "@/components/app-download-section"
 
 import { Button } from "@/components/ui/button"
 import { GradientBackground } from "@/components/ui/gradient-background"
-import { GlassCard } from "@/components/ui/glass-card"
 import { KolamHeroAnimation } from "@/components/ui/kolam-hero-animation"
 import { KolamLogo } from "@/components/ui/kolam-logo"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <GradientBackground />
-      <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-white/5 border-b border-white/10 transition-all duration-300 hover:bg-white/10">
-        <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
-          <Link href="/" className="flex items-center space-x-2 transition-transform duration-300 hover:scale-105">
-            <KolamLogo className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-            <span className="inline-block font-bold text-sm sm:text-base">Kolam AI</span>
+
+      <header className="nav-premium sticky top-0 z-50 w-full">
+        <div className="container flex h-16 lg:h-20 items-center justify-between px-4 lg:px-8">
+          <Link href="/" className="flex items-center space-x-3 logo-enhanced">
+            <KolamLogo className="h-8 w-8 lg:h-10 lg:w-10 text-primary" />
+            <span className="text-hero-gradient font-bold text-xl lg:text-2xl text-reveal">Kolam AI</span>
           </Link>
-          
+
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-6 lg:gap-8">
-            <Link
-              href="#features"
-              className="flex items-center text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-105 hover:drop-shadow-lg"
-            >
-              Features
-            </Link>
-            <Link
-              href="#gallery"
-              className="flex items-center text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-105 hover:drop-shadow-lg"
-            >
-              Gallery
-            </Link>
-            <Link
-              href="#pricing"
-              className="flex items-center text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-105 hover:drop-shadow-lg"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#download"
-              className="flex items-center text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-105 hover:drop-shadow-lg"
-            >
-              Download
-            </Link>
+          <nav className="hidden lg:flex gap-8 xl:gap-12">
+            {["Features", "Gallery", "Pricing", "Download"].map((item) => (
+              <Link
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="nav-magnetic relative text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-primary group"
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-orange-500 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            ))}
           </nav>
 
-          {/* Mobile Navigation Menu - Simple horizontal scroll for mobile */}
-          <nav className="flex md:hidden gap-4 overflow-x-auto scrollbar-hide">
-            <Link
-              href="#features"
-              className="flex-shrink-0 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-primary whitespace-nowrap"
-            >
-              Features
-            </Link>
-            <Link
-              href="#gallery"
-              className="flex-shrink-0 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-primary whitespace-nowrap"
-            >
-              Gallery
-            </Link>
-            <Link
-              href="#pricing"
-              className="flex-shrink-0 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-primary whitespace-nowrap"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#download"
-              className="flex-shrink-0 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-primary whitespace-nowrap"
-            >
-              Download
-            </Link>
+          {/* Mobile Navigation */}
+          <nav className="flex lg:hidden gap-6 overflow-x-auto scrollbar-hide">
+            {["Features", "Gallery", "Pricing"].map((item) => (
+              <Link
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="nav-magnetic flex-shrink-0 text-xs font-medium text-muted-foreground transition-all duration-300 hover:text-primary whitespace-nowrap"
+              >
+                {item}
+              </Link>
+            ))}
           </nav>
         </div>
       </header>
+
       <main className="flex-1">
-        <section className="relative min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)] flex items-center justify-center py-16 sm:py-24 overflow-hidden px-4">
-          <KolamHeroAnimation className="absolute inset-0 opacity-50 sm:opacity-100" />
-          <div className="container flex max-w-[68rem] flex-col items-center gap-6 sm:gap-8 text-center relative z-10">
-            <div className="rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm px-4 sm:px-6 py-2 text-xs sm:text-sm font-medium text-orange-600 border border-orange-500/30 transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-orange-500/30 hover:to-red-500/30 hover:border-orange-500/50">
-              ✨ Introducing Kolam AI - Where Tradition Meets Innovation 🕉️
-            </div>
-            <div className="hero-glow transition-all duration-500 hover:scale-105">
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl gradient-text leading-tight">
-                Preserve Indian Heritage
-                <br />
-                <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl mt-2 inline-block">Through AI Magic 🎨</span>
-              </h1>
-            </div>
-            <p className="max-w-[48rem] leading-relaxed text-muted-foreground text-base sm:text-lg md:text-xl md:leading-8 glass-effect p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white/10">
-              Create stunning Kolam patterns with AI assistance, learn traditional designs through AR tutorials, share
-              with a global community, and participate in festival challenges. Experience the perfect blend of ancient
-              artistry and cutting-edge technology. 🪔 Celebrate Diwali, Pongal, and Margazhi with authentic patterns.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 w-full max-w-xs sm:max-w-none">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-6 sm:py-4 text-base font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30 w-full sm:w-auto"
-                asChild
-              >
-                <Link href="#gallery">
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="glass-button border-orange-500/30 text-orange-600 hover:bg-orange-500/10 bg-transparent px-6 py-6 sm:py-4 text-base font-medium transition-all duration-300 hover:scale-105 hover:border-orange-500/60 hover:shadow-lg w-full sm:w-auto"
-                asChild
-              >
-                <Link href="#download">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download App
-                </Link>
-              </Button>
-            </div>
+        <section className="hero-new relative min-h-[80vh] flex items-center justify-center py-8 sm:py-12 lg:py-16 overflow-hidden">
+          {/* Enhanced gradient background with visual patterns */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-pink-50 to-purple-100"></div>
+          <div className="absolute inset-0 bg-gradient-to-tl from-orange-200/30 via-transparent to-pink-200/30"></div>
+          
+          {/* Traditional Kolam grid pattern overlay */}
+          <div className="absolute inset-0 opacity-5">
+            <svg width="60" height="60" className="absolute inset-0 w-full h-full">
+              <pattern id="kolam-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                <circle cx="30" cy="30" r="2" fill="#ff6b6b" />
+                <circle cx="10" cy="10" r="1" fill="#ff9a9e" />
+                <circle cx="50" cy="10" r="1" fill="#ff9a9e" />
+                <circle cx="10" cy="50" r="1" fill="#ff9a9e" />
+                <circle cx="50" cy="50" r="1" fill="#ff9a9e" />
+              </pattern>
+              <rect width="100%" height="100%" fill="url(#kolam-grid)" />
+            </svg>
+          </div>
+          
+          {/* Moving background orbs */}
+          <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-r from-orange-200/30 to-pink-200/30 rounded-full blur-xl animate-pulse" style={{animationDuration: '4s'}}></div>
+          <div className="absolute top-32 right-20 w-32 h-32 bg-gradient-to-r from-purple-200/25 to-blue-200/25 rounded-full blur-2xl animate-pulse" style={{animationDuration: '3s', animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 left-1/4 w-48 h-48 bg-gradient-to-r from-pink-200/20 to-red-200/20 rounded-full blur-2xl animate-pulse" style={{animationDuration: '5s', animationDelay: '2s'}}></div>
+          <div className="absolute bottom-40 right-1/3 w-36 h-36 bg-gradient-to-r from-yellow-200/25 to-orange-200/25 rounded-full blur-xl animate-pulse" style={{animationDuration: '3.5s', animationDelay: '0.5s'}}></div>
+          
+          {/* Floating moving shapes */}
+          <div className="absolute top-1/3 left-1/5 w-20 h-20 opacity-15">
+            <div className="w-full h-full bg-gradient-to-r from-orange-300 to-pink-300 rounded-full animate-ping" style={{animationDuration: '6s'}}></div>
+          </div>
+          <div className="absolute top-2/3 right-1/5 w-16 h-16 opacity-20">
+            <div className="w-full h-full bg-gradient-to-r from-purple-300 to-blue-300 transform rotate-45 animate-ping" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+          </div>
+          
+          {/* Animated geometric shapes */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 opacity-10">
+            <div className="w-full h-full border-2 border-orange-300 rounded-full animate-spin" style={{animationDuration: '20s'}}></div>
+          </div>
+          <div className="absolute top-3/4 right-1/4 w-24 h-24 opacity-15">
+            <div className="w-full h-full border-2 border-pink-300 rotate-45 animate-pulse" style={{animationDuration: '4s'}}></div>
+          </div>
+          
+          {/* Floating particles */}
+          <div className="absolute top-10 left-1/3 w-2 h-2 bg-orange-400 rounded-full opacity-60 animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+          <div className="absolute top-32 right-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full opacity-50 animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+          <div className="absolute bottom-20 left-1/2 w-3 h-3 bg-purple-400 rounded-full opacity-40 animate-bounce" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+          <div className="absolute bottom-40 right-1/5 w-2 h-2 bg-red-400 rounded-full opacity-55 animate-bounce" style={{animationDelay: '1.5s', animationDuration: '3.5s'}}></div>
+          
+          {/* Cleaner floating decorative dots with enhanced animations */}
+          <div className="absolute top-20 left-10 w-8 h-8 bg-gradient-to-r from-orange-400 to-red-400 rounded-full opacity-20" style={{animation: 'drift 8s ease-in-out infinite'}}></div>
+          <div className="absolute top-32 left-16 w-3 h-3 bg-orange-500 rounded-full opacity-30" style={{animation: 'float-across 6s ease-in-out infinite', animationDelay: '1s'}}></div>
+          
+          <div className="absolute bottom-32 right-16 w-10 h-10 bg-gradient-to-r from-red-400 to-pink-500 rounded-full opacity-25 float-gentle animate-pulse" style={{animationDuration: '4s', animation: 'drift 10s ease-in-out infinite, pulse 4s ease-in-out infinite'}}></div>
+          <div className="absolute top-1/2 right-12 w-4 h-4 bg-purple-400 rounded-full opacity-35" style={{animation: 'float-across 7s ease-in-out infinite', animationDelay: '2s'}}></div>
+          
+          <div className="absolute bottom-20 left-1/4 w-6 h-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-20 float-gentle" style={{animation: 'drift 9s ease-in-out infinite', animationDelay: '1.5s'}}></div>
 
-            <div className="grid grid-cols-3 gap-4 sm:gap-8 mt-8 sm:mt-12 w-full max-w-xs sm:max-w-2xl mx-auto">
-              <div className="text-center p-4 glass-effect rounded-lg transition-all duration-300 hover:scale-105">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">10K+</div>
-                <div className="text-2xl sm:text-3xl mb-1">🎨</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Kolam Patterns</div>
+          <div className="container relative z-10 text-center px-4 lg:px-8">
+            <div className="max-w-5xl mx-auto space-y-4 lg:space-y-8">
+              {/* Glassmorphism intro badge */}
+              <div className="inline-flex items-center gap-2 lg:gap-3 bg-white/20 backdrop-blur-md border border-white/30 px-4 lg:px-6 py-2 lg:py-3 rounded-full shadow-lg text-sm lg:text-base">
+                <Sparkles className="h-4 w-4 lg:h-5 lg:w-5 text-orange-500" />
+                <span className="font-semibold text-orange-600">
+                  ✨ Introducing Kolam AI - Where Tradition Meets Innovation
+                </span>
+                <div className="w-6 h-6 lg:w-7 lg:h-7 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg text-white text-xs flex items-center justify-center font-bold shadow-lg">
+                  🔮
+                </div>
               </div>
-              <div className="text-center p-4 glass-effect rounded-lg transition-all duration-300 hover:scale-105">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">50K+</div>
-                <div className="text-2xl sm:text-3xl mb-1">👥</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Active Artists</div>
+
+              {/* Simplified gradient text hero design */}
+              <div className="space-y-4 lg:space-y-6 relative">
+                {/* Clean decorative kolam pattern SVG */}
+                <div className="flex justify-center mb-6">
+                  <svg width="60" height="60" viewBox="0 0 100 100" className="text-orange-500 opacity-70">
+                    <circle cx="50" cy="50" r="6" fill="currentColor" />
+                    <circle cx="30" cy="30" r="3" fill="currentColor" />
+                    <circle cx="70" cy="30" r="3" fill="currentColor" />
+                    <circle cx="30" cy="70" r="3" fill="currentColor" />
+                    <circle cx="70" cy="70" r="3" fill="currentColor" />
+                    <path d="M50,25 Q35,50 50,75 Q65,50 50,25" stroke="currentColor" strokeWidth="2" fill="none" />
+                    <path d="M25,50 Q50,35 75,50 Q50,65 25,50" stroke="currentColor" strokeWidth="2" fill="none" />
+                  </svg>
+                </div>
+
+                <h1 className="font-black hero-text-responsive leading-tight tracking-tight">
+                  <div className="hero-gradient-text mb-2 lg:mb-3">
+                    Preserve Indian
+                  </div>
+                  <div className="hero-gradient-text mb-2 lg:mb-3">
+                    Heritage
+                  </div>
+                  <div className="hero-gradient-text">
+                    Through AI Magic
+                  </div>
+                </h1>
+
+                <p className="max-w-2xl mx-auto text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed bg-white/70 backdrop-blur-sm p-4 lg:p-6 rounded-xl shadow-lg border border-white/30">
+                  Create stunning traditional Kolam patterns with cutting-edge AI technology. Experience the perfect
+                  fusion of ancient Indian artistry and modern innovation.
+                </p>
               </div>
-              <div className="text-center p-4 glass-effect rounded-lg transition-all duration-300 hover:scale-105">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text">25+</div>
-                <div className="text-2xl sm:text-3xl mb-1">🪔</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Festivals Covered</div>
+
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center items-center">
+                <Button size="lg" className="btn-premium btn-ripple group">
+                  <Play className="mr-2 h-5 w-5 transition-transform group-hover:scale-110 icon-float" />
+                  Experience Demo
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="glass-card-premium border-white/20 hover:border-primary/50 px-6 py-3 bg-transparent btn-ripple"
+                >
+                  <Download className="mr-2 h-5 w-5 icon-float" />
+                  Download Free
+                </Button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 lg:gap-6 mt-8 lg:mt-12 max-w-3xl mx-auto">
+                {[
+                  { number: "50K+", icon: "🎨", label: "AI Patterns" },
+                  { number: "100K+", icon: "👥", label: "Artists" },
+                  { number: "25+", icon: "🪔", label: "Festivals" },
+                ].map((stat, index) => (
+                  <div key={index} className="glass-card-premium stats-bounce p-4 lg:p-6 text-center">
+                    <div className="text-2xl lg:text-3xl font-bold text-hero-gradient mb-1 text-reveal">
+                      {stat.number}
+                    </div>
+                    <div className="text-xl lg:text-2xl mb-1 icon-float" style={{ animationDelay: `${index}s` }}>
+                      {stat.icon}
+                    </div>
+                    <div className="text-xs lg:text-sm text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section id="features" className="container space-y-6 py-8 md:py-12 lg:py-24 px-4">
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-2xl leading-[1.1] sm:text-3xl md:text-4xl lg:text-6xl gradient-text transition-all duration-300 hover:scale-105">
-              Intelligent Kolam Features 🕉️
-            </h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground text-sm sm:text-base lg:text-lg lg:leading-7">
-              Our AI-powered app brings traditional Kolam art into the digital age with innovative features that honor
-              ancient traditions.
+        <section id="features" className="container space-y-16 lg:space-y-24 py-20 lg:py-32 px-4 lg:px-8">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <h2 className="text-hero-gradient font-bold text-3xl lg:text-5xl xl:text-6xl">Revolutionary Features</h2>
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+              Experience the future of traditional art with our AI-powered platform that honors ancient traditions while
+              embracing cutting-edge technology.
             </p>
           </div>
-          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[80rem] lg:grid-cols-3 xl:grid-cols-4">
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Palette className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
+
+          <div className="grid gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {[
+              {
+                icon: Palette,
+                title: "AI Pattern Generation",
+                description:
+                  "Create infinite unique Kolam patterns using advanced AI trained on authentic traditional designs.",
+                gradient: "from-orange-500 to-red-500",
+              },
+              {
+                icon: Camera,
+                title: "AR Visualization",
+                description: "Preview your Kolam designs in real-world spaces with immersive augmented reality.",
+                gradient: "from-pink-500 to-purple-500",
+              },
+              {
+                icon: Users,
+                title: "Global Community",
+                description: "Connect with artists worldwide and participate in cultural festivals and challenges.",
+                gradient: "from-blue-500 to-cyan-500",
+              },
+              {
+                icon: Trophy,
+                title: "Festival Competitions",
+                description: "Join seasonal celebrations with themed competitions and cultural prizes.",
+                gradient: "from-yellow-500 to-orange-500",
+              },
+              {
+                icon: Smartphone,
+                title: "Smart Drawing Tools",
+                description: "Intelligent brushes that help create perfect symmetrical patterns with ease.",
+                gradient: "from-green-500 to-teal-500",
+              },
+              {
+                icon: Play,
+                title: "Master Tutorials",
+                description: "Learn from traditional artists with step-by-step video guidance.",
+                gradient: "from-indigo-500 to-purple-500",
+              },
+              {
+                icon: QrCode,
+                title: "Pattern Recognition",
+                description: "Scan real Kolam patterns to get digital versions and cultural insights.",
+                gradient: "from-red-500 to-pink-500",
+              },
+              {
+                icon: Download,
+                title: "Offline Creation",
+                description: "Access your favorite patterns and tools even without internet connection.",
+                gradient: "from-cyan-500 to-blue-500",
+              },
+            ].map((feature, index) => (
+              <div key={index} className="glass-card-premium feature-card-magnetic card-tilt p-6 lg:p-8 group">
+                <div
+                  className={`inline-flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-2xl bg-gradient-to-r ${feature.gradient} mb-6 transition-all duration-300 group-hover:scale-110 icon-float`}
+                >
+                  <feature.icon className="h-6 w-6 lg:h-7 lg:w-7 text-white" />
+                </div>
+                <h3 className="font-bold text-lg lg:text-xl mb-3 text-hero-gradient text-reveal">{feature.title}</h3>
+                <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">AI Kolam Generation 🤖</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Generate beautiful traditional and modern Kolam patterns using advanced AI algorithms trained on
-                  authentic designs from Tamil Nadu and South India.
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard
-              className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30"
-              highlight
-            >
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Camera className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">AR Preview & Tutorials 📱</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Visualize Kolam patterns in your space with AR and follow step-by-step tutorials for traditional
-                  techniques passed down through generations.
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Users className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">Community & Challenges 🌍</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Share your creations, participate in festival challenges, and connect with Kolam enthusiasts
-                  worldwide. Celebrate Tamil culture together!
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Trophy className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">Festival Competitions 🏆</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Participate in seasonal festivals like Diwali, Pongal, and Margazhi with themed Kolam competitions and
-                  prizes. Honor traditional celebrations!
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">Smart Drawing Tools</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Intelligent brush tools that help you create perfect curves, symmetrical patterns, and traditional
-                  motifs with ease.
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Play className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">Video Tutorials</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Learn from master artists with high-quality video tutorials covering basic to advanced Kolam
-                  techniques.
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <QrCode className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">Pattern Recognition</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Scan real Kolam patterns with your camera to get digital versions, tutorials, and cultural
-                  significance.
-                </p>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/30">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm transition-all duration-300 hover:scale-110">
-                <Download className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
-              </div>
-              <div className="space-y-2 pt-4 sm:pt-6">
-                <h3 className="font-bold text-sm sm:text-base">Offline Mode</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Access your favorite patterns, tutorials, and drawing tools even without internet connection.
-                </p>
-              </div>
-            </GlassCard>
+            ))}
+          </div>
+        </section>
+
+        <section className="container space-y-16 py-20 lg:py-32 px-4 lg:px-8">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <h2 className="text-hero-gradient font-bold text-3xl lg:text-5xl xl:text-6xl">Artistic Masterpieces</h2>
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+              Explore our curated collection of traditional and AI-generated Kolam patterns, each telling a unique story
+              of cultural heritage and innovation.
+            </p>
           </div>
 
-          <div className="mt-12 sm:mt-16 space-y-8 sm:space-y-12">
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 items-center">
-              <div className="space-y-4 order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl font-bold gradient-text transition-all duration-300 hover:scale-105">
-                  Master Traditional Techniques 🎨
-                </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Learn authentic Kolam drawing techniques passed down through generations of Tamil families. Our
-                  AI-powered tutorials adapt to your skill level and provide personalized feedback to help you improve
-                  your artistry while respecting cultural traditions.
-                </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
-                    Step-by-step guided tutorials with cultural context
-                  </li>
-                  <li className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
-                    Real-time drawing assistance and corrections
-                  </li>
-                  <li className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
-                    Cultural context and spiritual meanings
-                  </li>
-                </ul>
-              </div>
-              <GlassCard className="p-4 sm:p-6 order-1 lg:order-2 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <div className="aspect-video bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg flex items-center justify-center transition-all duration-300 hover:from-orange-500/30 hover:to-red-500/30">
-                  <Play className="h-8 w-8 sm:h-12 sm:w-12 text-orange-600 transition-all duration-300 hover:scale-110" />
+          <div className="grid gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {[
+              {
+                src: "/traditional-lotus-pattern.png",
+                title: "Sacred Lotus",
+                description: "Traditional lotus symbolizing purity and spiritual awakening",
+                category: "Traditional",
+              },
+              {
+                src: "/Geometric-Mandala.png",
+                title: "Geometric Mandala",
+                description: "Modern interpretation of ancient mandala designs",
+                category: "Modern",
+              },
+              {
+                src: "/Peacock-Grace.png",
+                title: "Peacock Grace",
+                description: "Elegant peacock motif representing beauty and divinity",
+                category: "Traditional",
+              },
+              {
+                src: "/Rangoli-Flower-Burst.png",
+                title: "Festival Burst",
+                description: "Vibrant celebration pattern for special occasions",
+                category: "Festival",
+              },
+              {
+                src: "/Minimalist-Dots.png",
+                title: "Minimalist Dots",
+                description: "Simple yet profound dot-based sacred geometry",
+                category: "Minimalist",
+              },
+              {
+                src: "/AI-Fusion.png",
+                title: "AI Fusion",
+                description: "Revolutionary AI-generated traditional fusion",
+                category: "AI-Generated",
+              },
+              {
+                src: "/traditional-kolam-pattern-with-rice-flour-dots.jpg",
+                title: "Rice Flour Dots",
+                description: "Classic dot-based Kolam with traditional rice flour technique",
+                category: "Traditional",
+              },
+              {
+                src: "/colorful-rangoli-kolam-diwali-festival.jpg",
+                title: "Diwali Rangoli",
+                description: "Vibrant festival Kolam for Diwali celebrations",
+                category: "Festival",
+              },
+              {
+                src: "/geometric-star-kolam-pattern-symmetrical.jpg",
+                title: "Star Geometry",
+                description: "Symmetrical star pattern with intricate geometric details",
+                category: "Geometric",
+              },
+              {
+                src: "/floral-vine-kolam-pattern-traditional-south-indian.jpg",
+                title: "Floral Vines",
+                description: "Delicate vine and flower motifs in traditional style",
+                category: "Traditional",
+              },
+              {
+                src: "/modern-abstract-kolam-ai-generated-colorful.jpg",
+                title: "Abstract AI",
+                description: "Contemporary abstract interpretation by AI",
+                category: "AI-Generated",
+              },
+              {
+                src: "/temple-kolam-pattern-sacred-geometry-spiritual.jpg",
+                title: "Temple Sacred",
+                description: "Sacred geometry patterns used in temple courtyards",
+                category: "Sacred",
+              },
+            ].map((image, index) => (
+              <div key={index} className="glass-card-premium card-tilt overflow-hidden group">
+                <div className="image-hover-advanced aspect-square relative">
+                  <img
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {image.category}
+                  </div>
                 </div>
-              </GlassCard>
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2 text-hero-gradient text-reveal">{image.title}</h3>
+                  <p className="text-sm text-muted-foreground">{image.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button size="lg" className="btn-premium btn-ripple">
+              <Palette className="mr-2 h-5 w-5 icon-float" />
+              Explore Full Gallery
+            </Button>
+          </div>
+        </section>
+
+        <section id="pricing" className="container space-y-16 py-20 lg:py-32 px-4 lg:px-8">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <h2 className="text-hero-gradient font-bold text-3xl lg:text-5xl xl:text-6xl">Choose Your Journey</h2>
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+              Start your cultural art journey with our flexible plans designed for every artist.
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+            {/* Free Plan */}
+            <div className="glass-card-premium pricing-card-premium card-tilt p-8 lg:p-10 relative">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Heart className="h-6 w-6 text-green-500 icon-float" />
+                  <h3 className="font-bold text-2xl text-reveal">Free</h3>
+                </div>
+                <p className="text-muted-foreground">Perfect for exploring Kolam art</p>
+              </div>
+              <div className="mt-6 flex items-baseline">
+                <span className="text-4xl lg:text-5xl font-bold text-hero-gradient">₹0</span>
+                <span className="ml-2 text-muted-foreground">/month</span>
+              </div>
+              <ul className="mt-8 space-y-4">
+                {["100+ basic patterns", "Community gallery", "Simple tutorials", "Basic drawing tools"].map(
+                  (feature, index) => (
+                    <li key={index} className="flex items-center gap-3">
+                      <Check className="h-5 w-5 text-green-500 flex-shrink-0 icon-float" />
+                      <span className="text-sm lg:text-base">{feature}</span>
+                    </li>
+                  ),
+                )}
+              </ul>
+              <Button className="btn-premium btn-ripple w-full mt-8">Start Free</Button>
             </div>
 
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 items-center">
-              <GlassCard className="p-4 sm:p-6 order-2 lg:order-1 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <div className="aspect-video bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg flex items-center justify-center transition-all duration-300 hover:from-pink-500/30 hover:to-purple-500/30">
-                  <Camera className="h-8 w-8 sm:h-12 sm:w-12 text-pink-600 transition-all duration-300 hover:scale-110" />
+            {/* Premium Plan */}
+            <div className="glass-card-premium pricing-card-premium card-tilt p-8 lg:p-10 relative border-2 border-primary/30">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 badge-float">
+                  <Crown className="h-4 w-4 icon-float" />
+                  Most Popular
                 </div>
-              </GlassCard>
-              <div className="space-y-4 order-1 lg:order-2">
-                <h3 className="text-xl sm:text-2xl font-bold gradient-text transition-all duration-300 hover:scale-105">
-                  Augmented Reality Experience 📱
-                </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Visualize your Kolam designs in real-world spaces before you start drawing. Perfect for planning large
-                  outdoor installations for festivals or checking how traditional patterns will look in your home
-                  courtyard.
-                </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-                    <div className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></div>
-                    3D pattern preview in your sacred space
-                  </li>
-                  <li className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-                    <div className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></div>
-                    Size and scale adjustment for courtyards
-                  </li>
-                  <li className="flex items-center gap-2 transition-all duration-300 hover:scale-105">
-                    <div className="w-2 h-2 bg-pink-500 rounded-full flex-shrink-0"></div>
-                    Share AR experiences with family
-                  </li>
-                </ul>
               </div>
+              <div className="space-y-4 mt-4">
+                <div className="flex items-center gap-3">
+                  <Crown className="h-6 w-6 text-yellow-500 icon-float" />
+                  <h3 className="font-bold text-2xl text-reveal">Premium</h3>
+                </div>
+                <p className="text-muted-foreground">For serious artists and enthusiasts</p>
+              </div>
+              <div className="mt-6 flex items-baseline">
+                <span className="text-4xl lg:text-5xl font-bold text-hero-gradient">₹799</span>
+                <span className="ml-2 text-muted-foreground">/month</span>
+              </div>
+              <ul className="mt-8 space-y-4">
+                {[
+                  "5000+ premium patterns",
+                  "AI pattern generation",
+                  "AR preview & tutorials",
+                  "Festival collections",
+                  "Advanced tools",
+                  "Offline mode",
+                  "Priority support",
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-500 flex-shrink-0 icon-float" />
+                    <span className="text-sm lg:text-base">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button className="btn-premium btn-ripple w-full mt-8">Start Premium</Button>
+            </div>
+
+            {/* Master Plan */}
+            <div className="glass-card-premium pricing-card-premium card-tilt p-8 lg:p-10 relative">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Sparkles className="h-6 w-6 text-purple-500 icon-float" />
+                  <h3 className="font-bold text-2xl text-reveal">Master</h3>
+                </div>
+                <p className="text-muted-foreground">For institutions and cultural centers</p>
+              </div>
+              <div className="mt-6 flex items-baseline">
+                <span className="text-4xl lg:text-5xl font-bold text-hero-gradient">₹2,399</span>
+                <span className="ml-2 text-muted-foreground">/month</span>
+              </div>
+              <ul className="mt-8 space-y-4">
+                {[
+                  "Everything in Premium",
+                  "Unlimited AI generations",
+                  "Custom pattern creation",
+                  "Classroom management",
+                  "Cultural database",
+                  "White-label options",
+                  "Dedicated support",
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-500 flex-shrink-0 icon-float" />
+                    <span className="text-sm lg:text-base">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button
+                className="btn-premium btn-ripple w-full mt-8"
+                style={{ background: "linear-gradient(135deg, #8b5cf6, #ec4899)" }}
+              >
+                Contact Sales
+              </Button>
             </div>
           </div>
         </section>
+
         <section id="gallery" className="container space-y-6 sm:space-y-8 py-8 md:py-12 lg:py-24 px-4">
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-2xl leading-[1.1] sm:text-3xl md:text-4xl lg:text-6xl gradient-text">Kolam Gallery</h2>
+            <h2 className="font-heading text-2xl leading-[1.1] sm:text-3xl md:text-4xl lg:text-6xl gradient-text">
+              Kolam Gallery
+            </h2>
             <p className="max-w-[85%] leading-normal text-muted-foreground text-sm sm:text-base lg:text-lg lg:leading-7">
               Discover a collection of stunning Kolam patterns created by artists from around the world. Filter by
               category, difficulty, and festival to find the perfect inspiration for your next creation.
             </p>
           </div>
           <KolamGallery />
-        </section>
-        <section id="pricing" className="container space-y-6 py-8 md:py-12 lg:py-24 px-4">
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-2xl leading-[1.1] sm:text-3xl md:text-4xl lg:text-6xl gradient-text transition-all duration-300 hover:scale-105">
-              Choose Your Kolam Journey 🛤️
-            </h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground text-sm sm:text-base lg:text-lg lg:leading-7">
-              Start free and unlock premium features to enhance your Kolam creation experience and cultural learning.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-            <GlassCard className="p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
-              <div className="space-y-2">
-                <h3 className="font-bold text-xl">Free 🆓</h3>
-                <p className="text-muted-foreground">Perfect for beginners exploring Kolam art</p>
-              </div>
-              <div className="mt-4 flex items-baseline text-3xl font-bold">
-                $0<span className="ml-1 text-base font-medium text-muted-foreground">/month</span>
-              </div>
-              <ul className="mt-6 space-y-3">
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>50+ basic Kolam patterns</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Basic drawing tools</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Community gallery access</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Simple tutorials</span>
-                </li>
-              </ul>
-              <Button className="mt-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 w-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Get Started Free
-              </Button>
-            </GlassCard>
-
-            <GlassCard
-              className="p-6 relative transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20"
-              highlight
-            >
-              <div className="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-gradient-to-r from-orange-500 to-red-500 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-white transition-all duration-300 hover:scale-110">
-                Most Popular 🌟
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-xl">Premium</h3>
-                  <Crown className="h-5 w-5 text-yellow-500" />
-                </div>
-                <p className="text-muted-foreground">For serious artists and cultural enthusiasts</p>
-              </div>
-              <div className="mt-4 flex items-baseline text-3xl font-bold">
-                $9.99<span className="ml-1 text-base font-medium text-muted-foreground">/month</span>
-              </div>
-              <ul className="mt-6 space-y-3">
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>5000+ premium Kolam patterns</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>AI-powered pattern generation</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>AR preview & tutorials</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Festival-specific collections</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Advanced drawing tools</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Offline mode</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Priority support</span>
-                </li>
-              </ul>
-              <Button className="mt-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 w-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Start Premium Trial
-              </Button>
-            </GlassCard>
-
-            <GlassCard className="p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-xl">Master</h3>
-                  <Sparkles className="h-5 w-5 text-purple-500" />
-                </div>
-                <p className="text-muted-foreground">For teachers, institutions, and cultural centers</p>
-              </div>
-              <div className="mt-4 flex items-baseline text-3xl font-bold">
-                $29.99<span className="ml-1 text-base font-medium text-muted-foreground">/month</span>
-              </div>
-              <ul className="mt-6 space-y-3">
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Everything in Premium</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Unlimited AI generations</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Custom pattern creation</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Classroom management tools</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Cultural history database</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>White-label options</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="mr-2 h-4 w-4 text-green-600" />
-                  <span>Dedicated support</span>
-                </li>
-              </ul>
-              <Button className="mt-8 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 w-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                Contact Sales
-              </Button>
-            </GlassCard>
-          </div>
-
-          <div className="mt-16">
-            <GlassCard
-              className="p-8 text-center transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20"
-              highlight
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-center gap-2">
-                  <Trophy className="h-6 w-6 text-yellow-500 transition-all duration-300 hover:scale-110" />
-                  <h3 className="text-2xl font-bold gradient-text">Festival Special Offer 🪔</h3>
-                  <Trophy className="h-6 w-6 text-yellow-500 transition-all duration-300 hover:scale-110" />
-                </div>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Celebrate Diwali, Pongal, Margazhi, and other sacred festivals with exclusive Kolam patterns and 50%
-                  off Premium for the first 3 months. Honor your heritage with authentic designs! 🕉️
-                </p>
-                <div className="flex flex-wrap justify-center gap-4 mt-6">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 hover:scale-110 hover:shadow-xl"
-                  >
-                    Claim Festival Offer 🎉
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="glass-button bg-transparent transition-all duration-300 hover:scale-105 hover:border-yellow-500/50"
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-            </GlassCard>
-          </div>
         </section>
 
         <section id="download" className="container space-y-6 sm:space-y-8 py-8 md:py-12 lg:py-24 px-4">
@@ -527,52 +527,56 @@ export default function Home() {
           </div>
           <AppDownloadSection />
         </section>
-        <section className="container py-8 md:py-12 lg:py-24 px-4">
-          <GlassCard
-            className="mx-auto max-w-[58rem] p-6 sm:p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20"
-            highlight
-          >
-            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <div className="max-w-[32rem] space-y-2">
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight gradient-text transition-all duration-300 hover:scale-105">
-                  Ready to Start Your Kolam Journey? 🚀
+
+        <section className="container py-20 lg:py-32 px-4 lg:px-8">
+          <div className="glass-card-premium card-tilt cta-pulse max-w-5xl mx-auto p-8 lg:p-12 text-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-hero-gradient font-bold text-3xl lg:text-5xl text-reveal">
+                  Ready to Create Magic?
                 </h2>
-                <p className="text-center text-xs sm:text-sm leading-loose text-muted-foreground md:text-left">
-                  Join thousands of artists preserving Indian heritage through AI-powered Kolam creation. Honor
-                  tradition, embrace innovation! 🕉️
+                <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  Join thousands of artists preserving Indian heritage through AI-powered creativity. Start your journey
+                  into the beautiful world of traditional Kolam art today.
                 </p>
               </div>
-              <Button
-                size="lg"
-                className="shrink-0 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-orange-500/30 w-full sm:w-auto"
-              >
-                Download Now 📱
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
+                <Button size="lg" className="btn-premium btn-ripple">
+                  <Zap className="mr-2 h-5 w-5 icon-float" />
+                  Start Creating Now
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="glass-card-premium border-white/20 hover:border-primary/50 bg-transparent btn-ripple"
+                >
+                  <Globe className="mr-2 h-5 w-5 icon-float" />
+                  Explore Community
+                </Button>
+              </div>
             </div>
-          </GlassCard>
+          </div>
         </section>
       </main>
-      <footer className="border-t border-white/10 py-4 sm:py-6 md:py-0 backdrop-blur-md bg-white/5 transition-all duration-300 hover:bg-white/10">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row px-4">
-          <div className="flex flex-col items-center gap-3 sm:gap-4 px-4 sm:px-8 md:flex-row md:gap-2 md:px-0">
-            <KolamLogo className="h-5 w-5 sm:h-6 sm:w-6 text-primary transition-all duration-300 hover:scale-110" />
-            <p className="text-center text-xs sm:text-sm leading-loose text-muted-foreground md:text-left">
-              &copy; {new Date().getFullYear()} Kolam AI. All rights reserved. Preserving heritage through technology 🕉️
+
+      <footer className="nav-premium border-t border-white/10 py-8 lg:py-12">
+        <div className="container flex flex-col lg:flex-row items-center justify-between gap-6 px-4 lg:px-8">
+          <div className="flex items-center gap-4">
+            <KolamLogo className="h-8 w-8 text-primary logo-enhanced" />
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Kolam AI. Preserving heritage through innovation.
             </p>
           </div>
-          <div className="flex gap-4 sm:gap-6">
-            <Link
-              href="#"
-              className="text-xs sm:text-sm text-muted-foreground underline underline-offset-4 transition-all duration-300 hover:text-primary hover:scale-105"
-            >
-              Terms
-            </Link>
-            <Link
-              href="#"
-              className="text-xs sm:text-sm text-muted-foreground underline underline-offset-4 transition-all duration-300 hover:text-primary hover:scale-105"
-            >
-              Privacy
-            </Link>
+          <div className="flex gap-6">
+            {["Terms", "Privacy", "Support"].map((item) => (
+              <Link
+                key={item}
+                href="#"
+                className="footer-link text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+              >
+                {item}
+              </Link>
+            ))}
           </div>
         </div>
       </footer>
