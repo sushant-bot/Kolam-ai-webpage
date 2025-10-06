@@ -170,9 +170,19 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center items-center">
-                <Button size="lg" className="btn-premium btn-ripple group">
-                  <Play className="mr-2 h-5 w-5 transition-transform group-hover:scale-110 icon-float" />
-                  Experience Demo
+                <Button 
+                  size="lg" 
+                  className="btn-premium btn-ripple group"
+                  asChild
+                >
+                  <a 
+                    href="https://youtu.be/uMHfwhhN3_E?si=Yj3sMvhz_3sA7XPq" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Play className="mr-2 h-5 w-5 transition-transform group-hover:scale-110 icon-float" />
+                    Experience Demo
+                  </a>
                 </Button>
                 <Button
                   size="lg"
@@ -431,9 +441,9 @@ export default function Home() {
 
             {/* Premium Plan */}
             <div className="glass-card-premium pricing-card-premium card-tilt p-8 lg:p-10 relative border-2 border-primary/30">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 badge-float">
-                  <Crown className="h-4 w-4 icon-float" />
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <div className="popular-badge text-white px-8 py-3 rounded-full text-sm font-bold flex items-center gap-2">
+                  <Crown className="h-4 w-4" />
                   Most Popular
                 </div>
               </div>
